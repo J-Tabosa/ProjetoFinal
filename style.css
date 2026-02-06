@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(90deg, #ffba39, #d69c4a);
+    background: linear-gradient(90deg, #ffba39, #c48732);
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden; /* Evita que a página inteira balance para os lados */
 }
