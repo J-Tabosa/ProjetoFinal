@@ -1,0 +1,352 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, #ffba39, #d69c4a);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden; /* Evita que a página inteira balance para os lados */
+}
+
+/* HEADER */
+.profileInit {
+    background-image: url('assets/banner.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 32px;
+}
+
+.profileInit h1 {
+    color: aliceblue;
+    font-size: 24px;
+    flex: 1;
+    text-align: center;
+}
+
+.profileInit img {
+    height: 180px;
+    border-radius: 50%;
+    border: 4px dashed white;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.profileInit img:hover { filter: grayscale(0%); }
+
+/* NAV */
+.navigationBar {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    height: 50px;
+    background-color: black;
+    border-bottom: 1px solid aliceblue;
+    align-items: center;
+}
+
+.navigationBar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 280px;
+}
+.navigationBar a:hover {
+    color: #ffba39;
+    transition: 0.3s;
+}
+
+.navigationBar button {
+    background-color: #ffba39;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* CONTAINER DOS CARDS - Lado a Lado */
+.conteudoPrincipal {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 40px 10px;
+    gap: 15px;
+    flex-wrap: nowrap; /* Garante uma única linha */
+    overflow-x: auto;  /* Scroll caso a tela seja pequena demais */
+}
+
+/* ESTILO DO CARD */
+.card {
+    background-color: white;
+    width: 210px; /* Largura ideal para 5 cards em telas HD */
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.linkCard { text-decoration: none; color: inherit; }
+
+.linkCard:hover .card {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(169,164,255,0.4);
+}
+
+/* IMAGEM 3x4 (Retrato Profissional) */
+.imageBox {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Proporção de retrato */
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: #eee;
+}
+
+.imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Não deixa a foto esticar */
+    filter: grayscale(100%);
+    transition: 0.5s ease;
+}
+
+/* Efeito Hover: Volta a cor quando o mouse toca no Card */
+.linkCard:hover .imageBox img{
+    filter: grayscale(0%);
+}
+
+.card h2 { color: #000000; font-size: 1.1rem; text-align: center; }
+.card p { color: #333; font-size: 0.85rem; line-height: 1.4; }
+
+.botao {
+    margin-top: auto;
+    padding: 8px;
+    background-color: #ffba39;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+}
+.botao:hover {
+    background-color: #bb7300;
+    cursor: pointer;
+}
+
+/* FOOTER */
+/* FOOTER / RODAPÉ */
+.footerContato {
+    width: 100%;
+    background-color: #0b0b0b;
+    color: aliceblue;
+    border-top: 1px solid aliceblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 32px 64px;
+}
+
+.footerLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    font-size: 18px;
+}
+
+.footerLeft a {
+    color: #a9a4ff;
+    text-decoration: none;
+}
+
+.footerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footerRight form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footerRight input, .footerRight textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+.footerRight button {
+    background-color: #ffba39;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.footerRight button:hover {
+    background-color: #bb7300;
+}
+
+
+/* AJUSTE PARA TELAS PEQUENAS */
+@media (max-width: 1024px) {
+    .conteudoPrincipal {
+        justify-content: flex-start; /* Permite scroll no mobile */
+        padding-left: 20px;
+    }
+}
+
+/* ===== MODO ESCURO GLOBAL ===== */
+body.dark-mode {
+    background: linear-gradient(90deg, #1a1a1a, #3a2300);
+    color: #e0e0e0;
+}
+
+/* HEADER */
+body.dark-mode .profileInit h1 {
+    color: #ffffff;
+}
+
+/* NAVBAR */
+body.dark-mode .navigationBar {
+    background-color: #111;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .navigationBar a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .navigationBar a:hover {
+    color: #ffba39;
+}
+
+/* CARDS */
+body.dark-mode .card {
+    background-color: #161616;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .card p {
+    color: #cccccc;
+}
+
+/* IMAGENS */
+body.dark-mode .imageBox {
+    background-color: #222;
+}
+
+/* BOTÕES (PADRÃO ÚNICO) */
+body.dark-mode button,
+body.dark-mode .botao {
+    background-color: #a36a00;
+    color: #ffffff;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .botao:hover {
+    background-color: #ffd900;
+    color: #000000;
+}
+
+/* FOOTER */
+body.dark-mode .footerContato {
+    background-color: #0a0a0a;
+    border-top: 1px solid #333;
+}
+
+body.dark-mode .footerLeft a {
+    color: #cfcaff;
+}
+
+body.dark-mode .footerRight input,
+body.dark-mode .footerRight textarea {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+body.dark-mode .footerRight input::placeholder,
+body.dark-mode .footerRight textarea::placeholder {
+    color: #888;
+}
+/* ===== INTERRUPTOR MODO ESCURO ===== */
+.switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Trilho */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #444;
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+/* Botão deslizante */
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    z-index: 2;
+}
+
+/* Ícones */
+.icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.lua {
+    left: 8px;
+}
+
+.sol {
+    right: 8px;
+}
+
+
+/* Quando ativado */
+.switch input:checked + .slider {
+    background-color: #ffba39;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(30px);
+}
